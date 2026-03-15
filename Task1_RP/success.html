@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Submission Successful</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<style>
+
+/* Checkmark animation */
+
+.checkmark-circle{
+width:120px;
+height:120px;
+border-radius:50%;
+border:5px solid #22c55e;
+display:flex;
+align-items:center;
+justify-content:center;
+animation: pop 0.6s ease;
+}
+
+.checkmark{
+font-size:60px;
+color:#22c55e;
+animation: fadeIn 1s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(0.5);opacity:0;}
+100%{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadeIn{
+0%{opacity:0;}
+100%{opacity:1;}
+}
+
+</style>
+
+</head>
+
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 min-h-screen flex items-center justify-center">
+
+<!-- Glass Card -->
+<div class="backdrop-blur-lg bg-white/80 shadow-2xl rounded-2xl p-12 text-center max-w-lg hover:scale-105 transition duration-300">
+
+<!-- Checkmark -->
+<div class="flex justify-center mb-6">
+<div class="checkmark-circle">
+<div class="checkmark">✓</div>
+</div>
+</div>
+
+<h1 class="text-3xl font-bold text-green-600">
+Your data submitted successfully
+</h1>
+
+<p class="mt-4 text-gray-700">
+You will be redirected in 5 seconds...
+</p>
+
+</div>
+
+<script>
+setTimeout(function(){
+window.location.href="form.html";
+},5000);
+</script>
+
+</body>
+
+</html>

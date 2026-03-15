@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-6xl">
+
+        <h2 class="text-2xl font-bold text-center mb-6">Registration Form</h2>
+
+        <!-- Success Message -->
+        <div id="successMsg" class="hidden bg-green-500 text-white text-center p-3 rounded mb-4">
+            Your information submitted successfully
+        </div>
+
+        <form id="myForm" class="grid grid-cols-4 gap-4">
+
+            <div>
+                <label>First Name</label>
+                <input type="text" class="w-full p-2 border rounded">
+            </div>
+
+            <div>
+                <label>Middle Name</label>
+                <input type="text" class="w-full p-2 border rounded">
+            </div>
+
+            <div>
+                <label>Last Name</label>
+                <input type="text" class="w-full p-2 border rounded">
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input type="email" class="w-full p-2 border rounded">
+            </div>
+
+            <div>
+                <label>Mobile</label>
+                <input type="tel" class="w-full p-2 border rounded">
+            </div>
+
+            <div>
+                <label>Date of Birth</label>
+                <input type="date" class="w-full p-2 border rounded">
+            </div>
+
+            <div>
+                <label>Gender</label><br>
+                <input type="radio" name="gender"> Male
+                <input type="radio" name="gender"> Female
+            </div>
+
+            <div>
+                <label>City</label>
+                <input type="text" class="w-full p-2 border rounded">
+            </div>
+
+            <div class="col-span-4">
+                <label>Address</label>
+                <textarea class="w-full p-2 border rounded"></textarea>
+            </div>
+
+            <div>
+                <label>PIN Code</label>
+                <input type="text" class="w-full p-2 border rounded">
+            </div>
+
+            <div class="col-span-4 text-center mt-4">
+                <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded">
+                    Submit
+                </button>
+
+                <button type="reset" class="bg-red-500 text-white px-6 py-2 rounded ml-3">
+                    Reset
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+
+            event.preventDefault();   // stop page reload
+
+            let msg = document.getElementById("successMsg");
+
+            msg.classList.remove("hidden");   // show message
+
+            setTimeout(function () {
+                msg.classList.add("hidden");  // hide after 10 seconds
+            }, 10000);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

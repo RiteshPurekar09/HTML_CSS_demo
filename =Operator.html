@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript Operators Example</h2>
+
+    <button onclick="showValue()">Click Here</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function showValue() {
+
+            let x = 10;
+            let y = 5;
+
+            // Addition
+            let addition = x + y;
+
+            // Multiplication
+            let multiplication = x * y;
+
+            // Comparison
+            let comparison = (x == y);
+
+            document.getElementById("demo").innerHTML =
+                "Value of x: " + x + "<br>" +
+                "Value of y: " + y + "<br><br>" +
+                "Addition (x + y): " + addition + "<br>" +
+                "Multiplication (x * y): " + multiplication + "<br>" +
+                "Comparison (x == y): " + comparison;
+        }
+    </script>
+
+</body>
+
+</html>
