@@ -2,71 +2,76 @@
 <html>
 
 <head>
-<title>Submission Successful</title>
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Submission Successful</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-<style>
+    <style>
+        /* Checkmark animation */
+        .checkmark-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 5px solid #22c55e; /* Success Green */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pop 0.6s ease;
+        }
 
-/* Checkmark animation */
+        .checkmark {
+            font-size: 50px;
+            color: #22c55e;
+            animation: fadeIn 1s ease;
+        }
 
-.checkmark-circle{
-width:120px;
-height:120px;
-border-radius:50%;
-border:5px solid #22c55e;
-display:flex;
-align-items:center;
-justify-content:center;
-animation: pop 0.6s ease;
-}
+        @keyframes pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
 
-.checkmark{
-font-size:60px;
-color:#22c55e;
-animation: fadeIn 1s ease;
-}
-
-@keyframes pop{
-0%{transform:scale(0.5);opacity:0;}
-100%{transform:scale(1);opacity:1;}
-}
-
-@keyframes fadeIn{
-0%{opacity:0;}
-100%{opacity:1;}
-}
-
-</style>
-
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
 </head>
 
-<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 min-h-screen flex items-center justify-center">
+<body class="bg-slate-100 min-h-screen flex items-center justify-center p-6">
 
-<!-- Glass Card -->
-<div class="backdrop-blur-lg bg-white/80 shadow-2xl rounded-2xl p-12 text-center max-w-lg hover:scale-105 transition duration-300">
+    <div class="bg-white shadow-2xl rounded-2xl p-12 text-center max-w-lg border border-slate-200 transition-all duration-300">
 
-<!-- Checkmark -->
-<div class="flex justify-center mb-6">
-<div class="checkmark-circle">
-<div class="checkmark">✓</div>
-</div>
-</div>
+        <div class="flex justify-center mb-8">
+            <div class="checkmark-circle">
+                <div class="checkmark">✓</div>
+            </div>
+        </div>
 
-<h1 class="text-3xl font-bold text-green-600">
-Your data submitted successfully
-</h1>
+        <h1 class="text-3xl font-bold text-slate-800 mb-4">
+            Your Data Recorded Successfully!
+        </h1>
 
-<p class="mt-4 text-gray-700">
-You will be redirected in 5 seconds...
-</p>
+        <p class="text-slate-600 mb-8 leading-relaxed">
+            Thank you for reaching out to <span class="text-blue-600 font-bold">Oktacon Softwares</span>. Your data has been recorded securely in our system.
+        </p>
 
-</div>
+        <div class="flex flex-col items-center gap-4">
+            <div class="flex items-center gap-2 text-sm text-slate-400">
+                <div class="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                Redirecting you in 5 seconds...
+            </div>
+            
+            <a href="form.html" class="text-blue-600 font-semibold hover:underline text-sm mt-2">
+                Click here if you aren't redirected
+            </a>
+        </div>
 
-<script>
-setTimeout(function(){
-window.location.href="form.html";
-},5000);
-</script>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "form.html";
+        }, 5000);
+    </script>
 
 </body>
 
