@@ -1,151 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Oktacon Softwares</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Advanced Shake Animation */
+        /* Professional Solid Obsidian Navbar */
+        .glass-nav {
+            background-color: #0f172a !important; /* The Exact Brand Navy */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ensure Logo is white on the dark nav */
+        .nav-logo {
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Links styling */
+        .nav-link {
+            color: #f1f5f9;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #10b981; /* Emerald Green Hover */
+        }
+
+        /* Shake Animation for Validation Errors */
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-6px); }
-            75% { transform: translateX(6px); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
         }
-        .shake-error { animation: shake 0.2s ease-in-out 0s 2; }
+        .shake-error {
+            animation: shake 0.3s ease-in-out;
+        }
     </style>
 </head>
+<body id="bodyTag" class="bg-slate-100 min-h-screen flex flex-col transition-colors duration-300">
 
-<body class="bg-slate-100 min-h-screen flex items-center justify-center p-6">
-
-    <div id="mainBox" class="bg-white shadow-2xl rounded-2xl w-full max-w-5xl border border-slate-200 grid grid-cols-1 md:grid-cols-10 overflow-hidden transition-all duration-300">
-
-        <div id="leftPanel" class="md:col-span-3 bg-slate-50 p-8 border-r border-slate-200 flex flex-col justify-center">
-            <h2 class="text-2xl font-bold text-sky-500 mb-8">Get in Touch</h2>
-
-            <div class="space-y-8">
-                <div>
-                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Company Phone</h3>
-                    <p class="text-slate-700 font-medium">+91 9356808671</p>
-                </div>
-
-                <div>
-                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Company Email</h3>
-                    <p class="text-slate-700 font-medium break-words">oktaconsoftwares@gmail.com</p>
-                </div>
-                
-                <div class="pt-4">
-                   <p class="text-slate-500 text-sm italic">Our team typically responds within 24 hours.</p>
-                </div>
+    <nav id="navbar" class="glass-nav w-full">
+        <div class="max-w-6xl mx-auto flex justify-between items-center p-4 px-6">
+            <a href="index.html">
+                <img src="Images/logo.png" alt="Oktacon" class="h-10 brightness-0 invert">
+            </a>
+            <div class="flex items-center gap-8">
+                <ul class="hidden md:flex gap-8 text-white font-medium">
+                    <li><a href="index.html" class="hover:text-emerald-400">Home</a></li>
+                    <li class="hover:text-emerald-400 cursor-pointer">About</li>
+                    <li class="hover:text-emerald-400 cursor-pointer">Services</li>
+                    <li><a href="contact.html" class="text-emerald-400">Contact</a></li>
+                </ul>
+                <button onclick="toggleTheme()" id="themeBtn" class="bg-slate-800 text-white p-2 px-3 rounded-lg border border-slate-700 cursor-pointer">
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                </button>
             </div>
         </div>
+    </nav>
 
-        <div id="rightPanel" class="md:col-span-7 p-10 bg-white">
-            <form id="contactForm" novalidate class="grid grid-cols-2 gap-x-8 gap-y-6">
-
-                <h2 class="col-span-2 text-3xl font-bold text-slate-700 mb-2">
-                    Contact Form 
-                </h2>
-                
-                <div class="col-span-2 md:col-span-1 relative">
-                    <label class="text-xs font-bold text-slate-400 uppercase">Full Name</label>
-                    <input type="text" placeholder="John Doe" required pattern="^[A-Za-z\s]{2,}$"
-                        class="w-full border-b-2 border-slate-300 focus:outline-none py-2 bg-transparent text-black transition-all">
-                    <span class="error-msg text-[10px] text-red-600 absolute -bottom-4 left-0 hidden">Enter at least 2 letters</span>
+    <div class="flex-grow flex items-center justify-center p-6">
+        <div id="mainBox" class="bg-white shadow-2xl rounded-2xl w-full max-w-5xl border border-slate-200 grid grid-cols-1 md:grid-cols-10 overflow-hidden transition-all duration-300">
+            
+            <div id="leftPanel" class="md:col-span-3 bg-slate-50 p-8 border-r border-slate-200 flex flex-col justify-center transition-colors">
+                <h2 class="text-2xl font-bold text-sky-500 mb-8">Get in Touch</h2>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Company Phone</h3>
+                        <p class="text-slate-700 font-medium theme-text">+91 9356808671</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Company Email</h3>
+                        <p class="text-slate-700 font-medium break-words theme-text">oktaconsoftwares@gmail.com</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200">
+                       <p class="text-slate-500 text-sm italic">Our team typically responds within 24 hours.</p>
+                    </div>
                 </div>
+            </div>
 
-                <div class="col-span-2 md:col-span-1 relative">
-                    <label class="text-xs font-bold text-slate-400 uppercase">Your Email</label>
-                    <input type="email" placeholder="john@example.com" required
-                        class="w-full border-b-2 border-slate-300 focus:outline-none py-2 bg-transparent text-black transition-all">
-                    <span class="error-msg text-[10px] text-red-600 absolute -bottom-4 left-0 hidden">Enter a valid email address</span>
-                </div>
-
-                <div class="col-span-2 md:col-span-1 relative">
-                    <label class="text-xs font-bold text-slate-400 uppercase">Phone Number</label>
-                    <input type="tel" placeholder="10 Digit Number" pattern="[6-9][0-9]{9}" required
-                        class="w-full border-b-2 border-slate-300 focus:outline-none py-2 bg-transparent text-black transition-all">
-                    <span class="error-msg text-[10px] text-red-600 absolute -bottom-4 left-0 hidden">Enter a valid 10-digit number</span>
-                </div>
-
-                <div class="col-span-2 md:col-span-1 relative">
-                    <label class="text-xs font-bold text-slate-400 uppercase">Subject</label>
-                    <input type="text" placeholder="Service Inquiry" required
-                        class="w-full border-b-2 border-slate-300 focus:outline-none py-2 bg-transparent text-black transition-all">
-                    <span class="error-msg text-[10px] text-red-600 absolute -bottom-4 left-0 hidden">Subject is required</span>
-                </div>
-
-                <div class="col-span-2 relative">
-                    <label class="text-xs font-bold text-slate-400 uppercase">Your Message</label>
-                    <textarea rows="3" placeholder="Tell us more about your project..." required minlength="10"
-                        class="w-full border-b-2 border-slate-300 focus:outline-none py-2 bg-transparent text-black transition-all"></textarea>
-                    <span class="error-msg text-[10px] text-red-600 absolute -bottom-4 left-0 hidden">Message must be at least 10 characters</span>
-                </div>
-
-                <div class="col-span-2 flex flex-col items-center gap-4 mt-4">
-                    <button type="submit"
-                        class="bg-[#16A34A] hover:bg-[#15803d] text-white px-12 py-3 rounded-lg font-bold shadow-lg hover:scale-105 transition-all active:scale-95 cursor-pointer">
-                        Send Message
-                    </button>
+            <div id="rightPanel" class="md:col-span-7 p-10 bg-white transition-colors">
+                <form id="contactForm" novalidate class="grid grid-cols-2 gap-x-8 gap-y-6">
+                    <h2 class="col-span-2 text-3xl font-bold text-slate-700 mb-2 theme-text">Contact Form</h2>
                     
-                    <p id="message" class="text-green-600 font-semibold hidden">
-                        ✅ Thank you! Redirecting...
-                    </p>
-                </div>
-            </form>
-        </div>
+                    <div class="col-span-2 md:col-span-1 relative">
+                        <label class="text-xs font-bold text-slate-400 uppercase">Full Name</label>
+                        <input type="text" placeholder="John Doe" required pattern="^[A-Za-z\s]{2,}$"
+                            class="w-full border-b-2 border-slate-300 focus:outline-none py-2 bg-transparent text-black transition-all theme-input">
+                        <span class="error-msg text-[10px] text-red-600 absolute -bottom-4 left-0 hidden">Min 2 letters required</span>
+                    </div>
 
+                    <div class="col-span-2 md:col-span-1 relative">
+                        <label class="text-xs font-bold text-slate-400 uppercase">Your Email</label>
+                        <input type="email" placeholder="john@example.com" required
+                            class="w-full border-b-2 border-slate-300 focus:outline-none py-2 bg-transparent text-black transition-all theme-input">
+                        <span class="error-msg text-[10px] text-red-600 absolute -bottom-4 left-0 hidden">Enter a valid email</span>
+                    </div>
+
+                    <div class="col-span-2 relative">
+                        <label class="text-xs font-bold text-slate-400 uppercase">Your Message</label>
+                        <textarea rows="3" placeholder="How can we help you?" required minlength="10"
+                            class="w-full border-b-2 border-slate-300 focus:outline-none py-2 bg-transparent text-black transition-all theme-input"></textarea>
+                        <span class="error-msg text-[10px] text-red-600 absolute -bottom-4 left-0 hidden">Min 10 characters required</span>
+                    </div>
+
+                    <div class="col-span-2 flex flex-col items-center gap-4 mt-4">
+                        <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white px-12 py-3 rounded-lg font-bold shadow-lg transition-transform active:scale-95 cursor-pointer">
+                            Send Message
+                        </button>
+                        <p id="message" class="text-green-600 font-semibold hidden">✅ Message Sent! Redirecting to Home...</p>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script>
-        const form = document.getElementById('contactForm');
-        const inputs = form.querySelectorAll('input, textarea');
+        // THEME ENGINE
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') applyTheme(true);
+        });
 
-        // Advance Validation Function
-        function validateField(input) {
-            const errorSpan = input.parentElement.querySelector('.error-msg');
+        function toggleTheme() {
+            applyTheme(!document.body.classList.contains('dark-active'));
+        }
+
+        function applyTheme(isDark) {
+            const body = document.body;
+            const mainBox = document.getElementById('mainBox');
+            const leftPanel = document.getElementById('leftPanel');
+            const rightPanel = document.getElementById('rightPanel');
+            const icon = document.getElementById('themeIcon');
             
-            if (!input.checkValidity()) {
-                input.style.borderBottomColor = "red";
-                if (errorSpan) errorSpan.classList.remove('hidden');
-                return false;
+            if (isDark) {
+                body.classList.add('dark-active');
+                body.style.backgroundColor = "#020617";
+                mainBox.style.backgroundColor = "#1e293b";
+                mainBox.style.borderColor = "#334155";
+                leftPanel.style.backgroundColor = "#0f172a";
+                leftPanel.style.borderColor = "#334155";
+                rightPanel.style.backgroundColor = "#1e293b";
+                icon.className = "fa-solid fa-sun text-yellow-400";
+                
+                document.querySelectorAll('.theme-text, label, h2, p').forEach(el => el.style.color = "#f1f5f9");
+                document.querySelectorAll('.theme-input').forEach(i => i.style.color = "#f1f5f9");
+                localStorage.setItem('theme', 'dark');
             } else {
-                input.style.borderBottomColor = "#16A34A"; // Green on valid
-                if (errorSpan) errorSpan.classList.add('hidden');
-                return true;
+                body.classList.remove('dark-active');
+                body.style.backgroundColor = "";
+                mainBox.style.backgroundColor = "";
+                mainBox.style.borderColor = "";
+                leftPanel.style.backgroundColor = "";
+                leftPanel.style.borderColor = "";
+                rightPanel.style.backgroundColor = "";
+                icon.className = "fa-solid fa-moon text-white";
+                
+                document.querySelectorAll('.theme-text, label, h2, p').forEach(el => el.style.color = "");
+                document.querySelectorAll('.theme-input').forEach(i => i.style.color = "");
+                localStorage.setItem('theme', 'light');
             }
         }
 
-        // Add Real-time listeners
-        inputs.forEach(input => {
-            input.addEventListener('input', () => validateField(input));
-            input.addEventListener('blur', () => validateField(input));
-        });
+        // FORM VALIDATION & REDIRECT
+        const form = document.getElementById('contactForm');
+        const inputs = form.querySelectorAll('input, textarea');
 
-        // Form Submit Handler
-        form.addEventListener('submit', function(e) {
+        function validate(input) {
+            const error = input.parentElement.querySelector('.error-msg');
+            if (!input.checkValidity()) {
+                input.style.borderBottomColor = "red";
+                error?.classList.remove('hidden');
+                return false;
+            }
+            input.style.borderBottomColor = "#10b981";
+            error?.classList.add('hidden');
+            return true;
+        }
+
+        inputs.forEach(i => i.addEventListener('input', () => validate(i)));
+
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
-            let isAllValid = true;
+            let valid = true;
+            inputs.forEach(i => { if(!validate(i)) valid = false; });
 
-            inputs.forEach(input => {
-                if (!validateField(input)) isAllValid = false;
-            });
-
-            if (!isAllValid) {
+            if (!valid) {
                 const mainBox = document.getElementById('mainBox');
                 mainBox.classList.add('shake-error');
                 setTimeout(() => mainBox.classList.remove('shake-error'), 400);
             } else {
-                // Success State
-                document.getElementById("message").classList.remove("hidden");
-                setTimeout(function () {
-                    window.location.href = "form.html"; 
-                }, 3000);
+                // Show success message
+                document.getElementById('message').classList.remove('hidden');
+                
+                // Redirect to index.html after 2 seconds
+                setTimeout(() => { 
+                    window.location.href = "index.html"; 
+                }, 2000);
             }
         });
     </script>
-
 </body>
-
 </html>

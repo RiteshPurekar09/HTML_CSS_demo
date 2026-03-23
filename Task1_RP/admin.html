@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Oktacon Admin Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans overflow-hidden">
+
+    <div class="flex h-screen w-full">
+
+        <div id="mobile-overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden transition-opacity opacity-0"></div>
+
+        <aside id="sidebar" class="bg-slate-900 text-slate-300 w-64 flex-shrink-0 fixed md:relative h-full z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out shadow-2xl md:shadow-none border-r border-slate-800">
+            
+            <div class="h-16 flex items-center px-6 border-b border-slate-800 bg-slate-950/50">
+                <i class="fa-solid fa-layer-group text-emerald-400 text-xl mr-3"></i>
+                <span class="text-white font-bold text-lg tracking-wider">OKTACON</span>
+            </div>
+
+            <nav class="p-4 space-y-2 overflow-y-auto">
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4 mt-4 px-2">Menu</p>
+                
+                <a href="#" class="flex items-center px-4 py-3 bg-blue-600/10 text-blue-400 rounded-xl transition-colors">
+                    <i class="fa-solid fa-chart-pie w-6"></i> Dashboard
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition-colors">
+                    <i class="fa-solid fa-pen-nib w-6"></i> Content
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition-colors">
+                    <i class="fa-solid fa-users w-6"></i> Users
+                </a>
+                
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4 mt-8 px-2">System</p>
+                
+                <a href="#" class="flex items-center px-4 py-3 hover:bg-slate-800 hover:text-white rounded-xl transition-colors">
+                    <i class="fa-solid fa-gear w-6"></i> Settings
+                </a>
+                <a href="index.html" class="flex items-center px-4 py-3 mt-8 text-emerald-400 hover:bg-emerald-400/10 rounded-xl transition-colors border border-emerald-400/20">
+                    <i class="fa-solid fa-arrow-left w-6"></i> Back to Site
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 flex flex-col h-full relative overflow-hidden">
+            
+            <header class="md:hidden h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 flex-shrink-0 z-30">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-layer-group text-blue-600 text-xl mr-2"></i>
+                    <span class="font-bold text-slate-800">Admin</span>
+                </div>
+                <button onclick="toggleSidebar()" class="text-slate-500 hover:text-slate-800 focus:outline-none p-2 rounded-lg hover:bg-slate-100 transition-colors">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </header>
+
+            <div class="flex-1 overflow-y-auto p-6 md:p-10">
+                
+                <div class="mb-10">
+                    <h1 class="text-3xl font-black text-slate-800 tracking-tight">Content Management</h1>
+                    <p class="text-slate-500 mt-2">Manage your articles, publish new content, and review analytics.</p>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-end mb-6">
+                        <h2 class="text-xl font-bold text-slate-800">Latest Articles</h2>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm">
+                            <i class="fa-solid fa-plus mr-1"></i> New Post
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <article class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow group cursor-pointer flex flex-col">
+                            <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative"></div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full w-max mb-3 border border-blue-100">Technology</span>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors leading-tight">The Future of Edge Computing in 2024</h3>
+                                <p class="text-slate-500 text-sm mb-6 line-clamp-2 flex-1">Explore how moving processing power closer to the user is revolutionizing application speed and reducing latency across the globe.</p>
+                                <a href="#" class="text-sm font-bold text-slate-800 flex items-center group-hover:text-blue-600 transition-colors">
+                                    Edit Article <i class="fa-solid fa-arrow-right-long ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow group cursor-pointer flex flex-col">
+                            <div class="h-48 bg-gradient-to-br from-emerald-400 to-teal-600 relative"></div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full w-max mb-3 border border-emerald-100">Development</span>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-emerald-600 transition-colors leading-tight">Mastering CSS Grid Layouts</h3>
+                                <p class="text-slate-500 text-sm mb-6 line-clamp-2 flex-1">A comprehensive guide to building complex, responsive two-dimensional interfaces without relying on bloated external frameworks.</p>
+                                <a href="#" class="text-sm font-bold text-slate-800 flex items-center group-hover:text-emerald-600 transition-colors">
+                                    Edit Article <i class="fa-solid fa-arrow-right-long ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow group cursor-pointer flex flex-col">
+                            <div class="h-48 bg-gradient-to-br from-amber-400 to-orange-500 relative"></div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <span class="text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded-full w-max mb-3 border border-orange-100">Design</span>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-orange-600 transition-colors leading-tight">Why Micro-Interactions Matter</h3>
+                                <p class="text-slate-500 text-sm mb-6 line-clamp-2 flex-1">Small animations can have a massive impact on user satisfaction. Learn how to implement subtle feedback loops in your UI.</p>
+                                <a href="#" class="text-sm font-bold text-slate-800 flex items-center group-hover:text-orange-600 transition-colors">
+                                    Edit Article <i class="fa-solid fa-arrow-right-long ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Sidebar Toggle Logic for Mobile
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('mobile-overlay');
+
+        function toggleSidebar() {
+            // Toggle the sidebar translation class
+            sidebar.classList.toggle('-translate-x-full');
+            
+            // Toggle the overlay visibility
+            if (overlay.classList.contains('hidden')) {
+                overlay.classList.remove('hidden');
+                // Small delay to allow display block to apply before animating opacity
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+            } else {
+                overlay.classList.add('opacity-0');
+                // Wait for transition to finish before hiding element
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+    </script>
+</body>
+</html>
